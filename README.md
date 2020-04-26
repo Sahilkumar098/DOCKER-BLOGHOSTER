@@ -13,6 +13,6 @@ It is Fairly simple:
 - Install Docker-ce on Your machine. ( I know you are capable to do it by searching on GOOGLE. Go ahead Install it.)
 - Install Docker-compose
 - Download the above yaml File and edit it to your Liking. (Don't change the name, it might give some warning or error on changing the name)
-- Run the command with your terminal in the directory in which your yaml file is saved:     $docker-compose up$
+- Run the command with your terminal in the directory in which your yaml file is saved:     **docker-compose up**
 - Voila! Your server is up and running. (The port numbers are given in the yaml file, take it as a reference)
 - Happy  Blogging! 
