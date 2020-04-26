@@ -8,3 +8,11 @@ Publish on your terms. You control the design, the content, the experience, and 
 WordPress is a free and open-source content management system written in PHP and paired with a MySQL or MariaDB database. Features include a plugin architecture and a template system, referred to within WordPress as Themes.
 
 PS: I will be trying to add multiple new CMS platforms in the repo and will be listening to your issues. 
+## Setup
+It is Fairly simple:
+- Install Docker-ce on Your machine. ( I know you are capable to do it by searching on GOOGLE. Go ahead Install it.)
+- Install Docker-compose
+- Download the above yaml File and edit it to your Liking. (Don't change the name, it might give some warning or error on changing the name)
+- Run the command :     docker-compose up
+- Voila! Your server is up and running. (The port numbers are given in the yaml file, take it as a reference)
+- Happy  Blogging! 
