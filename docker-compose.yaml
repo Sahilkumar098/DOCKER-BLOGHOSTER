@@ -1,0 +1,68 @@
+version: '3'
+services:
+        mysql_os_1:
+                image: mysql:5.7
+                restart: always
+                environment:
+                         MYSQL_ROOT_PASSWORD: K@ju098
+                         MYSQL_USER: sahil
+                         MYSQL_PASSWORD: S@hil098
+                         MYSQL_DATABASE: ghost
+
+                volumes:
+                        - mysql_storage_1:/var/lib/mysql
+        mysql_os_2:
+                image: mysql:5.7
+                restart: always
+                networks:
+                        - webnet
+                environment:
+                         MYSQL_ROOT_PASSWORD: K@ju8986
+                         MYSQL_USER: jojo
+                         MYSQL_PASSWORD: jojo
+                         MYSQL_DATABASE: wordpress
+
+                volumes:
+                        - mysql_storage_2:/var/lib/mysql
+
+        ghostos:
+                image: ghost:latest
+                restart: always
+                depends_on: 
+                        - mysql_os_1
+                ports:
+                        - 80:2368                  
+                environment:
+                        database_connetecion_host: mysql_os_1
+                        database_connection_user: sahil
+                        database_connection_password: S@hil098
+                        database_connection_database: ghost
+                volumes:
+                        - ghost_storage:/var/lib/ghost/content 
+        wp_os:
+                image: wordpress:5.1.1-php7.3-apache
+                restart: always
+                depends_on:
+                          - mysql_os_2
+                ports:
+                          - 8080:80
+                networks:
+                        - webnet
+                environment:
+                          WORDPRESS_DB_HOST: mysql_os_2
+                          WORDPRESS_DB_USER: jojo
+                          WORDPRESS_DB_PASSWORD: jojo
+                          WORDPRESS_DB_NAME: wordpress
+                volumes:
+                          - wp_storage:/var/www/html/
+                
+volumes:
+        ghost_storage:
+        mysql_storage_1:
+        mysql_storage_2:
+        wp_storage:
+                
+
+networks:
+        webnet:
+
